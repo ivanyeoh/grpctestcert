@@ -51,9 +51,9 @@ end
 
 def load_certs
   test_root = File.join(File.dirname(__FILE__))
-  files = ['client.pem', 'server0.key', 'server0.pem']
+  files = ['./keys/client.pem', './keys/server0.key', './keys/server0.pem']
   contents = files.map { |f| File.open(File.join(test_root, f)).read }
-  [contents[0], [{ private_key: contents[1], cert_chain: contents[2] }], false]
+  [contents[0], [{ private_key: contents[1], cert_chain: contents[2] }], true]
 end
 
 def main
