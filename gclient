@@ -39,12 +39,13 @@ $LOAD_PATH.unshift(lib_dir) unless $LOAD_PATH.include?(lib_dir)
 
 require 'grpc'
 require 'helloworld_services'
+require './config'
 
 def main
   credentials = GRPC::Core::ChannelCredentials.new(
-    File.read('./keys/server0.pem'),
-    File.read('./keys/client.key'),
-    File.read('./keys/client.pem')
+    File.read(Config.server_pem),
+    File.read(Config.client_key),
+    File.read(Config.client_pem)
   )
 
   stub = Helloworld::Greeter::Stub.new('localhost:50051', credentials)
