@@ -1,5 +1,9 @@
 module Config
-  KEYDIR = "key_demo"
+  KEYDIR = "key_lala"
+
+  def self.ca_pem
+    "#{KEYDIR}/ca.crt"
+  end
 
   def self.client_key
     "#{KEYDIR}/client.key"
